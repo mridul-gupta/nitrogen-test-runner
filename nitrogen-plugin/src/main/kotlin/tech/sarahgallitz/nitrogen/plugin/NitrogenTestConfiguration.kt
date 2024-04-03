@@ -30,7 +30,7 @@ class NitrogenTestConfiguration(private val project: Project) {
             throw IllegalArgumentException("Nitrogen $configFileName must configure the targetProjectPath")
         } else {
             val targetProject = project.rootProject.findProject(targetProjectPath)
-            if (targetProject == null || !targetProject.plugins.hasPlugin("com.android.application")) {
+            if (targetProject == null || !targetProject.pluginManager.hasPlugin("com.android.application")) {
                 throw IllegalArgumentException("Nitrogen $configFileName targetProjectPath must be of type android application module")
             } else {
                 targetProject

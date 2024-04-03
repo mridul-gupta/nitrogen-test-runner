@@ -1,10 +1,15 @@
 package tech.sarahgallitz.nitrogen.environment
 
-import android.os.Build
+import org.robolectric.Robolectric
 
 object TestEnvironment {
     val isJvm: Boolean
-        get() = Build.FINGERPRINT == "robolectric"
+        get() = try {
+            Robolectric.getForegroundThreadScheduler()
+            true
+        } catch (e: Throwable) {
+            false
+        }
 
     var configuration = NitrogenConfiguration()
 }
