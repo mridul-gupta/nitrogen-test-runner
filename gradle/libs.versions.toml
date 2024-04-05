@@ -10,7 +10,7 @@ androidXTestRules = "1.5.0"
 androidXEspresso = "3.5.1"
 androidXTestJunit = "1.1.5"
 
-nitrogen = "0.0.5"
+nitrogen = "0.0.6"
 gradlePublish = "1.2.0"
 
 robolectric = "4.10.3"
