@@ -20,7 +20,7 @@ afterEvaluate {
                 from(components["release"])
 
                 groupId = "tech.sarahgallitz"
-                version = "0.0.5"
+                version = "0.0.6"
                 artifactId = "nitrogen"
 
                 pom {
