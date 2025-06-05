@@ -15,12 +15,12 @@ import tech.sarahgallitz.nitrogen.screenshots.takeScreenshot
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [33], qualifiers = DeviceQualifiers.Pixel5)
 @RunWith(NitrogenTestRunner::class)
-class ScreenshotTest {
+class ScreenshotJdb {
     @get:Rule
     val composeTestRule = createAndroidComposeRule<MainActivity>()
 
     @Test
-    fun screenshot_HomeScreen() {
-        composeTestRule.onRoot().takeScreenshot("HomeScreenMain")
+    fun screenshot_HomeScreen_jdb() {
+        composeTestRule.onRoot().takeScreenshot("HomeScreenJdb")
     }
 }
