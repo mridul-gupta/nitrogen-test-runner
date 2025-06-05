@@ -46,9 +46,16 @@ class NitrogenTestPlugin : Plugin<Project> {
                     isIncludeAndroidResources = true
                 }
             }
+//            project.tasks.withType<Test> {
+//                testClassesDirs = testClassesDirs.plus(sourceSets.main.get().output.classesDirs)
+//            }
+
+//            println("MGMGMG nitrogen test 52")
 
             sourceSets {
                 getByName("test") {
+                    println("MGMGMG nitrogen test 53 ${it.name} ${it.kotlin.srcDirs()} ${it.java.srcDirs()}")
+
                     it.kotlin.srcDir("src/main/kotlin")
                     it.java.srcDir("src/main/kotlin")
                     it.kotlin.srcDir("src/main/java")
@@ -57,14 +64,27 @@ class NitrogenTestPlugin : Plugin<Project> {
             }
 
             sourceSets.forEach { sourceSet ->
+                println("MGMGMG [$sourceSet], [${sourceSet.name}], [${sourceSet.java.srcDirs()}], [${sourceSet.kotlin.srcDirs()}]")
                 if (sourceSet.name != "main" && !sourceSet.name.contains("test", ignoreCase = true)) {
+                    println("MGMGMG not main [${sourceSet.name}]")
                     val testName = "test" + sourceSet.name.replaceFirstChar { it.uppercase() }
                     sourceSets.getByName(testName) { test ->
+                        println("MGMGMG test [${test.name}]")
                         test.kotlin.srcDir("src/${sourceSet.name}/kotlin")
                         test.java.srcDir("src/${sourceSet.name}/kotlin")
                         test.kotlin.srcDir("src/${sourceSet.name}/java")
                         test.java.srcDir("src/${sourceSet.name}/java")
                     }
+                    val testName2 = sourceSet.name
+                    sourceSets.getByName(testName2) { test ->
+                        println("MGMGMG test2 [${test.name}]")
+                        test.kotlin.srcDir("src/${sourceSet.name}/kotlin")
+                        test.java.srcDir("src/${sourceSet.name}/kotlin")
+                        test.kotlin.srcDir("src/${sourceSet.name}/java")
+                        test.java.srcDir("src/${sourceSet.name}/java")
+                    }
+                } else {
+                    println("MGMGMG main else [${sourceSet.name}]")
                 }
             }
 
