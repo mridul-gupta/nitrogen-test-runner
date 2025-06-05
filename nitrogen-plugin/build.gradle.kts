@@ -3,11 +3,11 @@
 plugins {
     id("kotlin")
     alias(libs.plugins.gradle.publish)
-    id("signing")
+//    id("signing")
 }
 
 group = "tech.sarahgallitz"
-version = "0.0.6"
+version = "9.1.6"
 
 gradlePlugin {
     website.set("https://github.com/Sarah-Gallitz/nitrogen-test-runner")

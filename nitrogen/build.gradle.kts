@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("maven-publish")
-    id("signing")
+//    id("signing")
 }
 
 afterEvaluate {
@@ -20,7 +20,7 @@ afterEvaluate {
                 from(components["release"])
 
                 groupId = "tech.sarahgallitz"
-                version = "0.0.6"
+                version = "9.1.6"
                 artifactId = "nitrogen"
 
                 pom {
@@ -54,9 +54,9 @@ afterEvaluate {
         }
     }
 
-    signing {
-        sign(publishing.publications["nitrogen"])
-    }
+//    signing {
+//        sign(publishing.publications["nitrogen"])
+//    }
 }
 
 android {
